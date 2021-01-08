@@ -6,6 +6,10 @@ const forecast = require("./utils/forecast");
 
 const app = express();
 
+//get the port number from heroku (or local)
+const port = process.env.PORT || 3000
+
+
 // Define paths for Express configuration
 const publicPath = path.join(__dirname, "../public"); // load static asssets such as html css js
 const viewsPath = path.join(__dirname, "../templates/views"); // default is views, changed to templates
@@ -102,6 +106,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server is up on port 3000");
 });
